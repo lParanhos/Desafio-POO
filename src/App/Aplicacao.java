@@ -35,7 +35,8 @@ public class Aplicacao {
 					jogoComputer.jogarComputador();
 					break;
 				case 3:
-					System.out.println("Replay");
+					Replay replay = new Replay();
+					replay.PrintReplay();
 					break;
 				case 4:
 					Ajuda infAjuda = new Ajuda();

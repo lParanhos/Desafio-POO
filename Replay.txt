@@ -1,0 +1,102 @@
+Iniciando o jogo ...
+Jogador 1 Escolheu o nome: mingau
+Jogador 1 Escolheu o simbolo: M
+Jogador 2 Escolheu o nome: leitinho
+Jogador 2 Escolheu o simbolo: L
+Jogador 1 Escolheu : CARA
+Jogador 2 leitinho joga primeiro!
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 3 casa(s).
+Jogador 2 leitinho caiu na casa especial e voltou0 casa(s).
+Jogador 2 leitinho esta na 0° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau tirou dois dados iguais Dado 1: 6 e Dado 2: 6. E tem direto a uma jogada bônus
+Jogador 1 mingau andou 18 casa(s).
+Jogador 1 mingau caiu na casa especial e voltou15 casa(s).
+Jogador 1 mingau esta na 15° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 8 casa(s).
+Jogador 2 leitinho esta na 8° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 25 casa(s).
+Jogador 1 mingau esta na 25° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 13 casa(s).
+Jogador 2 leitinho esta na 13° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 33 casa(s).
+Jogador 1 mingau esta na 33° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 20 casa(s).
+Jogador 2 leitinho esta na 20° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 41 casa(s).
+Jogador 1 mingau esta na 41° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 23 casa(s).
+Jogador 2 leitinho caiu na casa especial e voltou20 casa(s).
+Jogador 2 leitinho esta na 20° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 49 casa(s).
+Jogador 1 mingau caiu na casa especial e voltou46 casa(s).
+Jogador 1 mingau esta na 46° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 27 casa(s).
+Jogador 2 leitinho esta na 27° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 53 casa(s).
+Jogador 1 mingau esta na 53° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 33 casa(s).
+Jogador 2 leitinho esta na 33° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 57 casa(s).
+Jogador 1 mingau esta na 57° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho tirou dois dados iguais Dado 1: 4 e Dado 2: 4. E tem direto a uma jogada bônus
+Jogador 2 leitinho andou 46 casa(s).
+Jogador 2 leitinho esta na 46° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau tirou dois dados iguais Dado 1: 5 e Dado 2: 5. E tem direto a uma jogada bônus
+Jogador 1 mingau andou 73 casa(s).
+Jogador 1 mingau esta na 73° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 52 casa(s).
+Jogador 2 leitinho esta na 52° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 81 casa(s).
+Jogador 1 mingau caiu na casa especial e voltou78 casa(s).
+Jogador 1 mingau esta na 78° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho tirou dois dados iguais Dado 1: 4 e Dado 2: 4. E tem direto a uma jogada bônus
+Jogador 2 leitinho andou 64 casa(s).
+Jogador 2 leitinho esta na 64° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 82 casa(s).
+Jogador 1 mingau esta na 82° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 68 casa(s).
+Jogador 2 leitinho esta na 68° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 84 casa(s).
+Jogador 1 mingau esta na 84° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 74 casa(s).
+Jogador 2 leitinho esta na 74° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 90 casa(s).
+Jogador 1 mingau esta na 90° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 79 casa(s).
+Jogador 2 leitinho caiu na casa especial e voltou76 casa(s).
+Jogador 2 leitinho esta na 76° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 96 casa(s).
+Jogador 1 mingau esta na 96° posição.
+Jogador 2 leitinho jogou os dados
+Jogador 2 leitinho andou 82 casa(s).
+Jogador 2 leitinho esta na 82° posição.
+Jogador 1 mingau jogou os dados
+Jogador 1 mingau andou 101 casa(s).
+Jogador 1 mingau andou 5 casa(s).
+Jogador 1 mingau Venceu a partida!!!!.

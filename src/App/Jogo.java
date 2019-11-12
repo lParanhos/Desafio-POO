@@ -3,6 +3,14 @@ package App;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Stack;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.lang.reflect.Array;
+
 
 /**
  * 
@@ -121,23 +129,28 @@ public class Jogo implements Tabuleiro{
 	 * Método jogar referente ao jogo que acontece entre dois jogadores.
 	 */
 	public void jogar() {
-		
+			
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-		
+				
+		escreveJogadas("", "");
 		//Instancia um novo jogador solicita o nome e o simbolo do carrinho.
 		Jogador jogador1 = new Jogador();
 		System.out.println("Digite o nome do Jogador 1: ");
 		jogador1.setNome(scanner.next());
+		escreveJogadas("Jogador 1 ", "Escolheu o nome: " + jogador1.getNome());
 		System.out.println("Digite uma letra para representar seu carrinho: ");
 		jogador1.setSimbolo(scanner.next());
+		escreveJogadas("Jogador 1 ", "Escolheu o simbolo: " + jogador1.getSimbolo());
 		
 		//Instancia um segundo jogador solicita o nome e o simbolo do carrinho.
 		Jogador jogador2 = new Jogador();
 		System.out.println("Digite o nome do Jogador 2: ");
 		jogador2.setNome(scanner.next());
+		escreveJogadas("Jogador 2 ", "Escolheu o nome: " + jogador2.getNome());
 		System.out.println("Digite uma letra para representar seu carrinho: ");
 		jogador2.setSimbolo(scanner.next());
+		escreveJogadas("Jogador 2 ", "Escolheu o simbolo: " + jogador2.getSimbolo());
 		
 		System.out.println();
 		System.out.println();
@@ -145,7 +158,6 @@ public class Jogo implements Tabuleiro{
 		//Solicita ao jogador 1 que escolha entre cara e coroa, e armazena em 
 		//uma variavel convertendo o que foi digitado para maiusculo.
 		String escolhaSorteio = "";
-		
 		System.out.println(jogador1.getNome() + " Cara ou Coroa??");
 		escolhaSorteio = scanner.next().toUpperCase();
 		
@@ -156,6 +168,8 @@ public class Jogo implements Tabuleiro{
 			escolhaSorteio = scanner.next().toUpperCase();
 		}
 		
+		escreveJogadas("Jogador 1 ", "Escolheu : " + escolhaSorteio);
+
 		//Condição chamando o método caraCoroa que retorna um resultado boolean
 		//o parametro passado é a escolha do jogador 1 escolhendo entre cara ou coroa.
 		if(caraCoroa(escolhaSorteio)) {
@@ -163,11 +177,13 @@ public class Jogo implements Tabuleiro{
 			System.out.println();
 			jogador1.vez = true; //Caso a escolha for correta jogador 1 obtém a posse da vez.
 			jogador2.vez = false;//Jogador 2 perde a vez.
+			escreveJogadas("Jogador 1 ", jogador1.getNome() + " joga primeiro!");
 		}else {
 			System.out.println(jogador2.getNome() + " joga primeiro!");
 			System.out.println();
 			jogador2.vez = true;//Caso a escolha for incorreta jogador 2 obtém a posse da vez.
 			jogador1.vez = false;//Jogador 1 perde a vez.
+			escreveJogadas("Jogador 2 ", jogador2.getNome() + " joga primeiro!");
 		}
 
 		//Cria array de 100 posições.
@@ -194,12 +210,12 @@ public class Jogo implements Tabuleiro{
 			
 			//Vez do jogador 1.
 			if(jogador1.vez == true) {
+				escreveJogadas("Jogador 1 ", jogador1.getNome() + " jogou os dados");
 				
 				try {
 					//x e y representam os dados jogados retornando um valor de 1 a 6.
 					int x = (int)(Math.random()*6) + 1;
 					int y = (int)(Math.random()*6) + 1;
-					
 					//Número de casas que o jogador irá andar.
 					jogador1.numCasas = (x + y) - 1;
 						//Se o resultado dos dados forem iguais, mais dois dados serão jogados.
@@ -208,18 +224,21 @@ public class Jogo implements Tabuleiro{
 							int w = (int)(Math.random()*6) + 1;
 							int z = (int)(Math.random()*6) + 1;
 							jogador1.numCasas += ((w + z) - 1);
+							escreveJogadas("Jogador 1 ", jogador1.getNome() + " tirou dois dados iguais Dado 1: " + x + " e Dado 2: " 
+									+ y + ". E tem direto a uma jogada bônus");
 						}
 						
 					//Repassando o valor de casas que o jogador irá andar para o valor auxiliar
 					//que irá controlar a posição da corrida que o jogador se encontra.
 					valorJ1 += jogador1.numCasas;
-					
+					escreveJogadas("Jogador 1 ", jogador1.getNome() + " andou " + jogador1.numCasas + " casa(s).");
 					//Fazendo validação dos campos especiais e atribuição de posições após a jogada.
 					if(arrayPosicao[valorJ1].contains("|?|")) {
 						// LEO CUSAO ----------- Validar Casas especiais atualmente com valor fixo!
 						// E atribui o valor novo.
 						valorJ1-= 3;
 						arrayPosicao[valorJ1] = jogador1.getSimbolo();
+						escreveJogadas("Jogador 1 ", jogador1.getNome() + " caiu na casa especial e voltou " + jogador1.numCasas + " casa(s).");
 					}else if (arrayPosicao[valorJ1].contains("|_|")) {
 						arrayPosicao[valorJ1] = jogador1.getSimbolo();
 					}else if (arrayPosicao[valorJ1] == arrayPosicao[valorJ2]) {
@@ -232,13 +251,16 @@ public class Jogo implements Tabuleiro{
 					
 					System.out.println("Você tirou: " + jogador1.numCasas);
 					System.out.println("Você está na posição: " + valorJ1 + " da corrida!");
+					escreveJogadas("Jogador 1 ", jogador1.getNome() + " esta na " + valorJ1 + "° posição.");
 					System.out.println();
 					
 				//Tratando a exceção caso o número de casa andados for maior que as posições do array
 				//E nomeando o campeão.
 				} catch (ArrayIndexOutOfBoundsException e) {
 					System.out.println("Você tirou: " + jogador1.numCasas);
+					escreveJogadas("Jogador 1 ", jogador1.getNome() + " andou " + jogador1.numCasas + " casa(s).");
 					System.out.println(jogador1.getNome() + " Venceu a partida!!!!");
+					escreveJogadas("Jogador 1 ", jogador1.getNome() + " Venceu a partida!!!!.");
 					arrayPosicao[99] = jogador1.getSimbolo();
 					jogador1.vez = false;
 					jogador2.vez = false;
@@ -262,6 +284,7 @@ public class Jogo implements Tabuleiro{
 			//Repete os procedimentos acima porém referenciando o jogador 2.
 			if(jogador2.vez == true) {			
 				
+				escreveJogadas("Jogador 2 ", jogador2.getNome() + " jogou os dados");
 				try {
 					
 					int x = (int)(Math.random()*6) + 1;
@@ -271,14 +294,17 @@ public class Jogo implements Tabuleiro{
 							int w = (int)(Math.random()*6) + 1;
 							int z = (int)(Math.random()*6) + 1;
 							jogador2.numCasas += ((w + z) - 1);
+							escreveJogadas("Jogador 2 ", jogador2.getNome() + " tirou dois dados iguais Dado 1: " + x + " e Dado 2: " 
+									+ y + ". E tem direto a uma jogada bônus");
 						}
 					valorJ2 += jogador2.numCasas;
-					
+					escreveJogadas("Jogador 2 ", jogador2.getNome() + " andou " + jogador2.numCasas + " casa(s).");
 					if(arrayPosicao[valorJ2].contains("|?|")) {
 						// LEO CUSAO ----------- Validar Casas especiais atualmente com valor fixo!
 						// E atribui o valor novo.
 						valorJ2-= 3;
 						arrayPosicao[valorJ2] = jogador2.getSimbolo();
+						escreveJogadas("Jogador 2 ", jogador2.getNome() + " caiu na casa especial e voltou" + jogador2.numCasas + " casa(s).");
 					}else if (arrayPosicao[valorJ2].contains("|_|")) {
 						arrayPosicao[valorJ2] = jogador2.getSimbolo();
 					}else if (arrayPosicao[valorJ2] == arrayPosicao[valorJ1]) {
@@ -290,11 +316,14 @@ public class Jogo implements Tabuleiro{
 					
 					System.out.println("Você tirou: " + jogador2.numCasas);
 					System.out.println("Você está na posição: " + valorJ2 + " da corrida!");
+					escreveJogadas("Jogador 2 ", jogador2.getNome() + " esta na " + valorJ2 + "° posição.");
 					System.out.println();
 					
 				} catch (ArrayIndexOutOfBoundsException e) {
 					System.out.println("Você tirou: " + jogador2.numCasas);
+					escreveJogadas("Jogador 2 ", jogador2.getNome() + " andou " + jogador2.numCasas + " casa(s).");
 					System.out.println(jogador2.getNome() + " Venceu a partida!!!!");
+					escreveJogadas("Jogador 2 ", jogador2.getNome() + " Venceu a partida!!!!.");
 					arrayPosicao[99] = jogador2.getSimbolo();
 					jogador1.vez = false;
 					jogador2.vez = false;
@@ -478,6 +507,49 @@ public class Jogo implements Tabuleiro{
 			}
 		}
 	}
+	
+	public void escreveJogadas(String jogador, String acao) {
+		
+		
+		try {
+			//Carrega o arquivo txt
+			File file = new File("Replay.txt");
+			
+			//Caso o arquivo não exista, ele é gerado	
+			if(!file.exists()) {
+				file.createNewFile();
+			}
+			
+			 /* Prepara para escrever no arquivo 
+			  * o parametro true, informa ao FileWriter que ele deve manter os dados já existentes no arquivo.
+			  * É feita uma validação rápida para saber se é um novo jogo ou não...
+			  * */
+			FileWriter	fw = (jogador.isEmpty() && acao.isEmpty()) ? 
+								new FileWriter(file.getAbsoluteFile()) : 
+								new FileWriter(file.getAbsoluteFile(), true); 
+								
+			BufferedWriter bw = new BufferedWriter(fw);		
+			
+			/* Caso o jogador e a ação estejam vazios, significa que um novo jogo começou  */
+			if(jogador.isEmpty() && acao.isEmpty()) {
+				bw.write("Iniciando o jogo ...");
+				bw.newLine();
+				bw.close();
+				return ;
+			}
+			
+			// Escreve e cria uma nova linha no arquivo arquivo	 	
+		      bw.write(jogador + acao);
+		      bw.newLine();
+	        
+			//Fecha o gravador
+		      bw.close();
+			
+		} catch (Exception e) {
+			System.err.println(e);
+		}		
+	}
+
 	
 	/**
 	 * Classe que representa a jogada de cara ou coroa.
